@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests
         run: |
-            docker build ./spark-notebook --file Dockerfile
+            cd ./spark-notebook && docker build . --file Dockerfile
 
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build ./spark-notebook --file Dockerfile --tag $IMAGE_NAME
+        run: cd ./spark-notebook && docker build . --file Dockerfile --tag $IMAGE_NAME
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
