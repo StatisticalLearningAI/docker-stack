@@ -50,8 +50,6 @@ jobs:
 
       - name: Push image
         run: |
-          cd ./spark-notebook 
-          
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
           
           # Change all uppercase to lowercase
@@ -69,5 +67,5 @@ jobs:
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
 
-          docker tag image $IMAGE_ID:$VERSION
+          docker tag spark-notebook $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
