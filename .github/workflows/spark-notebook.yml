@@ -50,7 +50,7 @@ jobs:
 
       - name: Push image
         run: |
-          IMAGE_ID=statisticallearningai/docker-stack/$IMAGE_NAME
+          IMAGE_ID=statisticallearningai/$IMAGE_NAME
           
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
